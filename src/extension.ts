@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       await vscode.env.clipboard.writeText(parts.join("\n\n"));
-      vscode.window.showInformationMessage(`Copied ${parts.length} file(s)`);
+      vscode.window.showInformationMessage(`ContextPack: Copied ${parts.length} file(s)`);
     }
   );
 

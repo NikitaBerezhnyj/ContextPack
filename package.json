@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "copyFileContents.copy",
-        "title": "Copy Contents of Selected Files"
+        "title": "Copy Contents of Files"
       }
     ],
     "menus": {
