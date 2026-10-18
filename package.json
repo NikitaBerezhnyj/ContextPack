@@ -2,7 +2,28 @@
   "name": "context-pack",
   "displayName": "ContextPack",
   "description": "Copy and combine the contents of selected files and folders into a single text output.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "NikitaBerezhnyj",
+  "icon": "assets/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NikitaBerezhnyj/ContextPack"
+  },
+  "bugs": {
+    "url": "https://github.com/NikitaBerezhnyj/ContextPack/issues"
+  },
+  "keywords": [
+    "copy",
+    "clipboard",
+    "files",
+    "folders",
+    "context",
+    "ai",
+    "llm",
+    "prompt",
+    "explorer"
+  ],
   "engines": {
     "vscode": "^1.140.0"
   },
@@ -19,6 +40,12 @@
       }
     ],
     "menus": {
+      "commandPalette": [
+        {
+          "command": "copyFileContents.copy",
+          "when": "false"
+        }
+      ],
       "explorer/context": [
         {
           "command": "copyFileContents.copy",
@@ -64,29 +91,24 @@
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "package": "npm run check-types && npm run lint && node esbuild.js --production",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src",
     "format": "prettier src --write",
-    "test": "vscode-test"
+    "prepare:readme": "shx cp README.md README.md.bak && shx cp assets/README.md README.md",
+    "restore:readme": "shx mv README.md.bak README.md",
+    "build:vsix": "vsce package",
+    "vsix": "run-s --continue-on-error prepare:readme build:vsix restore:readme"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
     "@types/node": "24.x",
     "@types/vscode": "^1.140.0",
-    "@vscode/test-cli": "^0.0.15",
-    "@vscode/test-electron": "^3.0.0",
+    "@vscode/vsce": "^4.0.0",
     "esbuild": "^0.28.1",
     "eslint": "^10.5.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.9.10",
+    "shx": "^0.4.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.1"
-  },
-  "overrides": {
-    "diff": "^8.0.4",
-    "serialize-javascript": "^7.0.6"
   }
 }

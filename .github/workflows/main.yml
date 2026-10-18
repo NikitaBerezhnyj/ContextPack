@@ -40,7 +40,7 @@ jobs:
 
       - name: Build VSIX
         run: |
-          npm run package
+          vsce package
           echo "Built file: ${{ steps.get_meta.outputs.NAME }}-${{ steps.get_meta.outputs.VERSION }}.vsix"
 
       - name: Upload VSIX artifact

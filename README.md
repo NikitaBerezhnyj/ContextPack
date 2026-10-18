@@ -1,71 +1,92 @@
-# context-pack README
+# ContextPack
 
-This is the README for your extension "context-pack". After writing up a brief description, we recommend including the following sections.
+<p align='center'>
+  <img src='assets/icon.png' alt='Extension Icon' style="width:50%">
+</p>
+
+## Overview
+
+ContextPack is a Visual Studio Code extension that copies the contents of all selected files in the Explorer to the clipboard in one click. It is built for sharing code with AI assistants: select the files, right-click, paste the result into a chat.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Multi-file copy**: Select any number of files in the Explorer and copy their contents at once from the context menu.
+- **Folder support**: Selected folders are expanded recursively, so all files inside them are included.
+- **Simple output format**: Every file is written as its relative path followed by a colon and the file contents.
+- **Safe by default**: Binary files and files larger than 1 MB are skipped, and the notification tells you how many were skipped.
+- **Configurable ignore list**: Folders such as `node_modules` or `.git` are skipped when a folder is expanded, and the list can be changed in settings.
 
-For example if there is an image subfolder under your extension project workspace:
+## Technologies Used
 
-\!\[feature X\]\(images/feature-x.png\)
+- TypeScript
+- Visual Studio Code Extension API
+- esbuild
+- VSCE (Visual Studio Code Extension packaging tool)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Getting Started
 
-## Requirements
+To get started with ContextPack, follow these steps:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Clone the repository:
 
-## Extension Settings
+   ```bash
+   git clone https://github.com/NikitaBerezhnyj/ContextPack.git
+   ```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+2. Navigate to the project folder:
 
-For example:
+   ```bash
+   cd ContextPack
+   ```
 
-This extension contributes the following settings:
+3. Install dependencies:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+   ```bash
+   npm install
+   ```
 
-## Known Issues
+4. Press `F5` to open debug extension
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Build
 
-## Release Notes
+For build extension follow this steps:
 
-Users appreciate release notes as you update your extension.
+1. Build the extension:
 
-### 1.0.0
+   ```bash
+   npm run vsix
+   ```
 
-Initial release of ...
+2. Install the extension in Visual Studio Code using the **"Install from VSIX"** option.
 
-### 1.0.1
+## Usage
 
-Fixed issue #.
+Once ContextPack is installed:
 
-### 1.1.0
+1. Open Visual Studio Code with a workspace folder.
+2. Select one or more files or folders in the Explorer.
+3. Right-click the selection and choose **Copy Contents of Files**.
+4. Paste the result wherever you need it. The output looks like this:
 
-Added features X, Y, and Z.
+   ```text
+   src/index.js:
+   console.log("Hello World!");
 
----
+   src/utils.js:
+   export const sum = (a, b) => a + b;
+   ```
 
-## Following extension guidelines
+5. A notification shows how many files were copied and how many were skipped.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Files you select explicitly are always included, unless they are binary or larger than 1 MB. The ignore list only applies to the contents of selected folders.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+### Settings
 
-## Working with Markdown
+- `copyFileContents.ignoredFolders` — folder names that are skipped when a selected folder is expanded (for example `node_modules`, `.git`, `dist`).
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## License & Community Guidelines
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- [License](LICENSE) — project license.
+- [Code of Conduct](CODE_OF_CONDUCT.md) — expected behavior for contributors.
+- [Contributing Guide](CONTRIBUTING.md) — how to help the project.
+- [Security Policy](SECURITY.md) — reporting security issues.
