@@ -1,26 +1,31 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const command = vscode.commands.registerCommand(
+    "copyFileContents.copy",
+    async (clicked?: vscode.Uri, selected?: vscode.Uri[]) => {
+      const uris = selected?.length ? selected : clicked ? [clicked] : [];
+      const decoder = new TextDecoder();
+      const parts: string[] = [];
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "context-pack" is now active!');
+      for (const uri of uris) {
+        const stat = await vscode.workspace.fs.stat(uri);
+        if (stat.type !== vscode.FileType.File) {
+          continue;
+        }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('context-pack.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from ContextPack!');
-	});
+        const bytes = await vscode.workspace.fs.readFile(uri);
+        const relativePath = vscode.workspace.asRelativePath(uri);
 
-	context.subscriptions.push(disposable);
+        parts.push(`${relativePath}:\n${decoder.decode(bytes)}`);
+      }
+
+      await vscode.env.clipboard.writeText(parts.join("\n\n"));
+      vscode.window.showInformationMessage(`Copied ${parts.length} file(s)`);
+    }
+  );
+
+  context.subscriptions.push(command);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
