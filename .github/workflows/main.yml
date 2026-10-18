@@ -91,6 +91,7 @@ jobs:
           VERSION=${{ steps.get_meta.outputs.VERSION }}
           gh release create "v$VERSION" ./artifacts/${{ steps.get_meta.outputs.NAME }}.vsix \
             --title "ContextPack v$VERSION" \
-            --notes "Automated VS Code extension release"
+            --generate-notes \
+            || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
