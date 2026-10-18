@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a problem or unexpected behavior in CodeClock
+about: Report a problem or unexpected behavior in ContextPack
 title: "[Bug] "
 labels: bug
 assignees: ""
@@ -33,7 +33,7 @@ If applicable, add screenshots, logs, or error messages to help explain the prob
 
 - OS: [e.g. Windows 11, Ubuntu 22.04, macOS 14]
 - Browser / Runtime: [e.g. Chrome 117, Node.js 20]
-- Version of CodeClock: [e.g. 1.0.0]
+- Version of ContextPack: [e.g. 1.0.0]
 
 ## Additional Context
 

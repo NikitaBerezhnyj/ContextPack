@@ -1,8 +1,8 @@
-# Security Policy for CodeClock
+# Security Policy for ContextPack
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in **CodeClock**, please report it responsibly.  
+If you discover a security vulnerability in **ContextPack**, please report it responsibly.  
 To do so, open an issue in this repository with the label `security` or submit a confidential report via your platform's private issue system (if available).
 
 Please include:
@@ -19,5 +19,5 @@ Please include:
 
 ## Responsible Disclosure
 
-By following responsible disclosure, you help protect users and maintain the integrity of **CodeClock**.  
+By following responsible disclosure, you help protect users and maintain the integrity of **ContextPack**.  
 Please do not publicly disclose vulnerabilities before a fix is released.

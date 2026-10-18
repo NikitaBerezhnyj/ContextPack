@@ -1,4 +1,4 @@
-name: Build and Release CodeClock Extension
+name: Build and Release ContextPack Extension
 
 permissions:
   contents: write
@@ -7,10 +7,10 @@ permissions:
 on:
   push:
     branches:
-      - prod
+      - main
   pull_request:
     branches:
-      - prod
+      - main
 
 jobs:
   build-and-package:
@@ -90,7 +90,7 @@ jobs:
         run: |
           VERSION=${{ steps.get_meta.outputs.VERSION }}
           gh release create "v$VERSION" ./artifacts/${{ steps.get_meta.outputs.NAME }}.vsix \
-            --title "CodeClock v$VERSION" \
+            --title "ContextPack v$VERSION" \
             --notes "Automated VS Code extension release"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

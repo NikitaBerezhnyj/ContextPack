@@ -1,11 +1,11 @@
-# Contributing to CodeClock
+# Contributing to ContextPack
 
-Thank you for your interest in contributing to **CodeClock**!  
+Thank you for your interest in contributing to **ContextPack**!  
 We appreciate every contribution, big or small, and your efforts help improve the project for everyone.
 
 ## How to Contribute
 
-There are several ways you can contribute to **CodeClock**:
+There are several ways you can contribute to **ContextPack**:
 
 ### 1. Reporting Issues
 
@@ -14,7 +14,7 @@ There are several ways you can contribute to **CodeClock**:
 
 ### 2. Suggesting Enhancements
 
-- If you have ideas for improving **CodeClock**, please describe them in a new issue.
+- If you have ideas for improving **ContextPack**, please describe them in a new issue.
 - Include examples or use cases whenever possible.
 
 ### 3. Submitting Pull Requests
@@ -23,12 +23,12 @@ There are several ways you can contribute to **CodeClock**:
 - Keep your changes focused on a single purpose.
 - Write clear and descriptive commit messages.
 - Include tests for any new functionality.
-- Ensure your code follows the existing style and conventions of **CodeClock**.
+- Ensure your code follows the existing style and conventions of **ContextPack**.
 
 ### 4. Code Review
 
 - Review open pull requests when possible.
-- Provide constructive feedback to help maintain the quality of **CodeClock**.
+- Provide constructive feedback to help maintain the quality of **ContextPack**.
 - Be respectful and collaborative in discussions.
 
 ## Guidelines
@@ -40,6 +40,6 @@ There are several ways you can contribute to **CodeClock**:
 
 ## Thank You!
 
-Your contributions make **CodeClock** better for everyone.  
+Your contributions make **ContextPack** better for everyone.  
 Even small fixes, documentation updates, or suggestions are highly valued.  
-We look forward to your contributions and appreciate your help in making **CodeClock** a stronger, more reliable project.
+We look forward to your contributions and appreciate your help in making **ContextPack** a stronger, more reliable project.
