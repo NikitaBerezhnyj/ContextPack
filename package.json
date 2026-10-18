@@ -1,7 +1,7 @@
 {
   "name": "context-pack",
   "displayName": "ContextPack",
-  "description": "",
+  "description": "Copy and combine the contents of selected files and folders into a single text output.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.140.0"
@@ -25,6 +25,36 @@
           "group": "6_copypath"
         }
       ]
+    },
+    "configuration": {
+      "title": "ContextPack",
+      "properties": {
+        "copyFileContents.ignoredFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "node_modules",
+            ".git",
+            "dist",
+            "out",
+            "build",
+            "target",
+            "bin",
+            "obj",
+            "venv",
+            ".venv",
+            "__pycache__",
+            ".next",
+            ".dart_tool",
+            ".gradle",
+            ".idea",
+            "Pods"
+          ],
+          "description": "Folder names skipped when copying the contents of a selected folder."
+        }
+      }
     }
   },
   "scripts": {
